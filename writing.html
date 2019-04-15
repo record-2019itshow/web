@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Generic - Phantom by HTML5 UP</title>
+		<title>Write</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -22,7 +22,7 @@
 
 							<!-- Logo -->
 								<a href="index.html" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Phantom</span>
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">RECORD</span>
 								</a>
 
 							<!-- Nav -->
@@ -40,25 +40,24 @@
 						<h2>Menu</h2>
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Ipsum veroeros</a></li>
-							<li><a href="generic.html">Tempus etiam</a></li>
-							<li><a href="generic.html">Consequat dolor</a></li>
-							<li><a href="elements.html">Elements</a></li>
+							<li><a href="writing.html">나의 RECORD</a></li>
+							<li><a href="writing.html">#해시태그</a></li>
+							<li><a href="elements.html">월 별로 모아보기</a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>Generic Page</h1>
-							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<h1>Add &nbsp;a &nbsp;Record</h1>
+							<h6>오늘의 한줄 일기</h6>
+							<textarea id="contents" onkeydown="resize(this)" onkeyup="resize(this); len_chk()" placeholder="함 적어봐라ㅋ"></textarea>
+							<br><br><input type="file" id="imgAttach" name="imgAttach" onchange="LoadImg(this);">
 						</div>
 					</div>
 
 				<!-- Footer -->
+				<!--
 					<footer id="footer">
 						<div class="inner">
 							<section>
@@ -98,6 +97,7 @@
 							</ul>
 						</div>
 					</footer>
+				-->
 
 			</div>
 
@@ -107,6 +107,30 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				function resize(obj) {
+						obj.style.height = "1px";
+						obj.style.height = (12+obj.scrollHeight)+"px";
+				}
+				function len_chk() {
+					var ctn = document.getElementById("contents"); 
+					if(ctn.value.length > 300){  
+										alert("300자 이상 입력할 수 없습니다");  
+										ctn.value = ctn.value.substring(0,300);  
+										ctn.focus();  
+					} 
+				}
+				
+				function LoadImg(value) {
+     if(value.files && value.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+       $('#LoadImg').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(value.files[0]);
+     }
+    }
+			</script>
 
 	</body>
 </html>
