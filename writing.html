@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Write</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">RECORD</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="writing.html">글쓰기</a></li>
+							<li><a href="hashtag.html">#해시태그</a></li>
+							<li><a href="calendar.html">월 별로 모아보기</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Add &nbsp;a &nbsp;Record</h1>
+							<h6>오늘의 한줄 일기</h6>
+							<textarea id="contents" onkeydown="resize(this)" onkeyup="resize(this); len_chk()" placeholder="함 적어봐라ㅋ"></textarea>
+							<br><br><input type="file" id="imgAttach" name="imgAttach" onchange="LoadImg(this);">
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+				function resize(obj) {
+						obj.style.height = "1px";
+						obj.style.height = (12+obj.scrollHeight)+"px";
+				}
+				function len_chk() {
+					var ctn = document.getElementById("contents"); 
+					if(ctn.value.length > 300){  
+										alert("300자 이상 입력할 수 없습니다");  
+										ctn.value = ctn.value.substring(0,300);  
+										ctn.focus();  
+					} 
+				}
+				
+				function LoadImg(value) {
+     if(value.files && value.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+       $('#LoadImg').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(value.files[0]);
+     }
+    }
+			</script>
+
+	</body>
+</html>

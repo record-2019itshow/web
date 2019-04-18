@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:600");
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-image: linear-gradient(100deg, #fecdd3, #503282);
+    overflow: auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.flex-contatiner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.calendar-container {
+    position: relative;
+    width: 360px;
+    height: 360px;
+    box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
+    overflow: visible;
+}
+
+.image-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #503282;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    background-image: url("https://scontent-lhr3-1.cdninstagram.com/vp/d8a7330780177ea2ec63bdaa033d9f60/5CFE042D/t51.2885-15/e35/49907149_771523759883108_5463458491549976251_n.jpg?_nc_ht=scontent-lhr3-1.cdninstagram.com&ig_cache_key=MTk2NjUxMDI4MTE2NzIwMDEyMQ%3D%3D.2");
+    background-repeat: no-repeat;    background-size: cover;
+    background-position: center center;
+    -webkit-filter: url("#duotone");
+    filter: url("#duotone");
+}
+
+.calendar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: 10%;
+    margin-left: 10%;
+    padding-top: 15%;
+    border: 10px solid #fff;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.calendar .month-title {
+    position: absolute;
+    top: -0.4em;
+    left: -0.3em;
+    margin: 0;
+    font-size: 400px;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #fff;
+    opacity: 0.15;
+}
+
+.calendar .calendar-table {
+    position: absolute;
+    width: 100%;
+    height: 85%;
+    border-collapse: collapse;
+    color: #fff;
+}
+
+.calendar .calendar-table th,
+.calendar .calendar-table td {
+    text-align: center;
+    font-size: 16px;
+}
+
+.calendar .calendar-table td {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.calendar .calendar-table td:not(.is-today) {
+    opacity: 0.5;
+}
+
+.calendar .calendar-table td:hover {
+    opacity: 1;
+}
+
+.calendar .is-today {
+    opacity: 1;
+    background-color: #fff;
+    color: #503282;
+}
