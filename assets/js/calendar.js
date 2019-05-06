@@ -41,6 +41,7 @@ function calendarBody(year, month, today){
     tr += '</tr>';
     tableBody += tr;
   }
+  
   $tbody.html(tableBody);
 }
 
